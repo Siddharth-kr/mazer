@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Checkout Page</h3>
-                <p class="text-subtitle text-muted">A checkout page for paid services.</p>
+                <p class="text-subtitle text-muted">Complete your purchase securely and easily.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -20,20 +20,534 @@
             </div>
         </div>
     </div>
+
+    <!-- Enhanced Progress Indicator -->
+    <section class="mb-4">
+        <div class="progress-tracker">
+            <div class="progress-steps">
+                <div class="step active">
+                    <div class="step-icon">1</div>
+                    <span class="step-label">Cart</span>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <span class="step-label">Shipping</span>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <span class="step-label">Payment</span>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <span class="step-label">Review</span>
+                </div>
+                <div class="step">
+                    <div class="step-icon">5</div>
+                    <span class="step-label">Confirmation</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 20%;"></div>
+            </div>
+        </div>
+    </section>
+
     <section class="section">
         <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Coming Soon!</h5>
+            <!-- Left Column: User & Payment Details -->
+            <div class="col-md-8">
+                <!-- Enhanced User Information Card -->
+                <div class="card mb-4 checkout-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>User Information</h5>
+                        <span class="badge bg-primary">Required</span>
                     </div>
                     <div class="card-body">
-                        If you want to contribute, check out our <a href="https://github.com/zuramai/mazer"
-                            target="_blank">template repository</a>.
+                        <form id="userInfoForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" placeholder="example@email.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" placeholder="+91 9876543210" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Shipping Address <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="123 Street, City, State" required>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sameAddress" checked>
+                                        <label class="form-check-label" for="sameAddress">
+                                            Billing address same as shipping address
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12" id="billingAddressSection" style="display: none;">
+                                    <label class="form-label">Billing Address</label>
+                                    <input type="text" class="form-control" placeholder="Enter billing address">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Enhanced Payment Options -->
+                <div class="card mb-4 checkout-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>Payment Options</h5>
+                        <span class="badge bg-primary">Secure</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-methods">
+                            <div class="payment-option active">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment" id="creditCard" checked>
+                                    <label class="form-check-label w-100" for="creditCard">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-credit-card me-2"></i>
+                                            Credit/Debit Card
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="payment-details mt-3">
+                                    <div class="row g-2">
+                                        <div class="col-12">
+                                            <label class="form-label small">Card Number</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="1234 5678 9012 3456">
+                                                <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label small">Expiry Date</label>
+                                            <input type="text" class="form-control" placeholder="MM/YY">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label small">CVV</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="123">
+                                                <span class="input-group-text" data-bs-toggle="tooltip" title="3-digit code on back of card">
+                                                    <i class="bi bi-question-circle"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label small">Cardholder Name</label>
+                                            <input type="text" class="form-control" placeholder="John Doe">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-option">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment" id="upi">
+                                    <label class="form-check-label w-100" for="upi">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-phone me-2"></i>
+                                            UPI / Wallet
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="payment-details mt-3">
+                                    <div class="row g-2">
+                                        <div class="col-12">
+                                            <label class="form-label small">UPI ID</label>
+                                            <input type="text" class="form-control" placeholder="username@upi">
+                                        </div>
+                                        <div class="col-12">
+                                            <p class="small text-muted">We'll redirect you to your UPI app for payment</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-option">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment" id="netBanking">
+                                    <label class="form-check-label w-100" for="netBanking">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-bank me-2"></i>
+                                            Net Banking
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="payment-details mt-3">
+                                    <div class="row g-2">
+                                        <div class="col-12">
+                                            <label class="form-label small">Select Bank</label>
+                                            <select class="form-select">
+                                                <option selected>Choose your bank</option>
+                                                <option>State Bank of India</option>
+                                                <option>HDFC Bank</option>
+                                                <option>ICICI Bank</option>
+                                                <option>Axis Bank</option>
+                                                <option>Punjab National Bank</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-option">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment" id="cod">
+                                    <label class="form-check-label w-100" for="cod">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-cash-coin me-2"></i>
+                                            Cash on Delivery
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="payment-details mt-3">
+                                    <div class="alert alert-info">
+                                        <small>Pay when your order is delivered. Additional charges may apply.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Promo Code Section -->
+                <div class="card mb-4 checkout-card">
+                    <div class="card-header">
+                        <h5>Promo Code</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter promo code" id="promoCode">
+                            <button class="btn btn-outline-primary" type="button" id="applyPromo">Apply</button>
+                        </div>
+                        <div id="promoMessage" class="small"></div>
+                        <div class="mt-2">
+                            <a href="#" class="text-decoration-none small" data-bs-toggle="collapse" data-bs-target="#availablePromos">
+                                View available promo codes
+                            </a>
+                            <div class="collapse mt-2" id="availablePromos">
+                                <div class="card card-body">
+                                    <ul class="list-unstyled small mb-0">
+                                        <li><span class="badge bg-success me-2">SAVE10</span> Get 10% off on orders above $50</li>
+                                        <li><span class="badge bg-success me-2">FREESHIP</span> Free shipping on all orders</li>
+                                        <li><span class="badge bg-success me-2">NEWUSER</span> $15 off for new customers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Enhanced Order Summary -->
+            <div class="col-md-4">
+                <div class="card mb-4 checkout-card sticky-top" style="top: 20px;">
+                    <div class="card-header">
+                        <h5>Order Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="order-items mb-3">
+                            <div class="order-item d-flex justify-content-between align-items-center mb-2">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" alt="Product 1" class="rounded me-2">
+                                    <div>
+                                        <div class="small fw-bold">Product 1</div>
+                                        <div class="small text-muted">Qty: 1</div>
+                                    </div>
+                                </div>
+                                <strong>$20</strong>
+                            </div>
+                            <div class="order-item d-flex justify-content-between align-items-center mb-2">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" alt="Product 2" class="rounded me-2">
+                                    <div>
+                                        <div class="small fw-bold">Product 2</div>
+                                        <div class="small text-muted">Qty: 1</div>
+                                    </div>
+                                </div>
+                                <strong>$15</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="order-totals">
+                            <div class="d-flex justify-content-between small py-1">
+                                <span>Subtotal</span>
+                                <span>$35</span>
+                            </div>
+                            <div class="d-flex justify-content-between small py-1">
+                                <span>Shipping</span>
+                                <span>$5</span>
+                            </div>
+                            <div class="d-flex justify-content-between small py-1">
+                                <span>Discount</span>
+                                <span class="text-success">-$5</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between fw-bold py-1">
+                                <span>Total</span>
+                                <span>$35</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-success w-100 mt-3" id="placeOrderBtn">Place Order</button>
+                        <div class="text-center mt-2">
+                            <small class="text-muted">By placing your order, you agree to our <a href="#">Terms of Service</a></small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Trust/Security Indicators -->
+                <div class="card checkout-card">
+                    <div class="card-body text-center">
+                        <h6 class="card-title mb-3">Secure Checkout</h6>
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="security-badge me-3">
+                                <i class="bi bi-shield-check text-success fs-4"></i>
+                                <div class="small">SSL Secure</div>
+                            </div>
+                            <div class="security-badge me-3">
+                                <i class="bi bi-lock-fill text-primary fs-4"></i>
+                                <div class="small">Encrypted</div>
+                            </div>
+                            <div class="security-badge">
+                                <i class="bi bi-credit-card text-info fs-4"></i>
+                                <div class="small">PCI DSS</div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mb-2">
+                            <img src="https://img.icons8.com/color/32/visa.png" alt="Visa" class="me-2">
+                            <img src="https://img.icons8.com/color/32/mastercard.png" alt="MasterCard" class="me-2">
+                            <img src="https://img.icons8.com/color/32/american-express.png" alt="Amex" class="me-2">
+                            <img src="https://img.icons8.com/color/32/paypal.png" alt="PayPal">
+                        </div>
+                        <p class="text-muted small mt-2">Your payment information is encrypted and secure.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+<style>
+/* Custom Styles for Enhanced Checkout */
+.checkout-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+}
+
+.checkout-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.progress-tracker {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-icon {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #e9ecef;
+    z-index: 1;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #0d6efd;
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+.payment-option {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.payment-option.active {
+    border-color: #0d6efd;
+    background-color: #f8f9fa;
+}
+
+.payment-option:hover {
+    border-color: #adb5bd;
+}
+
+.payment-details {
+    display: none;
+}
+
+.payment-option.active .payment-details {
+    display: block;
+}
+
+.security-badge {
+    text-align: center;
+}
+
+.order-item img {
+    object-fit: cover;
+}
+
+.sticky-top {
+    position: sticky;
+    z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .progress-steps {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .step {
+        margin: 0 10px 15px;
+    }
+    
+    .progress-bar {
+        display: none;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle billing address
+    const sameAddressCheckbox = document.getElementById('sameAddress');
+    const billingAddressSection = document.getElementById('billingAddressSection');
+    
+    sameAddressCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            billingAddressSection.style.display = 'none';
+        } else {
+            billingAddressSection.style.display = 'block';
+        }
+    });
+    
+    // Payment method selection
+    const paymentOptions = document.querySelectorAll('input[name="payment"]');
+    paymentOptions.forEach(option => {
+        option.addEventListener('change', function() {
+            document.querySelectorAll('.payment-option').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            if (this.checked) {
+                this.closest('.payment-option').classList.add('active');
+            }
+        });
+    });
+    
+    // Promo code application
+    const applyPromoBtn = document.getElementById('applyPromo');
+    const promoCodeInput = document.getElementById('promoCode');
+    const promoMessage = document.getElementById('promoMessage');
+    
+    applyPromoBtn.addEventListener('click', function() {
+        const code = promoCodeInput.value.trim();
+        
+        if (code === '') {
+            promoMessage.innerHTML = '<span class="text-danger">Please enter a promo code</span>';
+            return;
+        }
+        
+        // Simulate promo code validation
+        const validCodes = ['SAVE10', 'FREESHIP', 'NEWUSER'];
+        
+        if (validCodes.includes(code.toUpperCase())) {
+            promoMessage.innerHTML = '<span class="text-success">Promo code applied successfully!</span>';
+        } else {
+            promoMessage.innerHTML = '<span class="text-danger">Invalid promo code. Please try again.</span>';
+        }
+    });
+    
+    // Place order button
+    const placeOrderBtn = document.getElementById('placeOrderBtn');
+    placeOrderBtn.addEventListener('click', function() {
+        // Simple form validation
+        const requiredFields = document.querySelectorAll('#userInfoForm [required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('is-invalid');
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        });
+        
+        if (isValid) {
+            // Simulate order processing
+            this.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Processing...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                alert('Order placed successfully!');
+                this.innerHTML = 'Place Order';
+                this.disabled = false;
+            }, 2000);
+        } else {
+            alert('Please fill in all required fields.');
+        }
+    });
+    
+    // Initialize tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
+</script>
 {% endblock %}
